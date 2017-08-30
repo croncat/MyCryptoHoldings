@@ -2,11 +2,11 @@
 
 [This is a POC]
 
-##Usage:
+## Usage:
 
 Add to "cryptos.json" your crypto accounts. You only need to put the public addresses. In case of monero and zcash z addresses, right now you can put directly the balance (I don't develop any method to obtain protected balances [for now])
 
-##Example:
+## Example:
 
 cryptos.json:
 ```
@@ -23,6 +23,6 @@ Retrieving data...
 TOTAL HOLDINGS: 648.20 usd
 ```
 
-##ToDo:
+## ToDo:
 
 The program only support BTC, ZEC and XMR for now. If you want, you can add new classes to "account.py" in order to support more currencies and send me a pull request :)
