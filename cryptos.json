@@ -1,0 +1,4 @@
+[
+	{"currency": "bitcoin", "addr": "15ZrQBTkmxn7nnKUof2FmCmM1nDiosGENQ", "name": "donations"},
+	{"currency": "monero", "balance": 5.0, "name": "example"}
+]
