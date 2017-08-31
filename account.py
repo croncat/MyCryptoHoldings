@@ -1,5 +1,4 @@
 import requests
-import locale
 
 class Account:
     #static use only
@@ -44,21 +43,23 @@ class Account:
 class BitcoinAccount(Account):
     
     def fill_balance(self):
-        url = 'https://blockchain.info/rawaddr/%s' %self.addr
-        btc_rsp = requests.get(url)
-        if btc_rsp.json():
-            self.balance = float(btc_rsp.json()['final_balance'])
-            #from satoshi to btc
-            self.balance *= 0.00000001
+        if self.addr is not "":
+            url = 'https://blockchain.info/rawaddr/%s' %self.addr
+            btc_rsp = requests.get(url)
+            if btc_rsp.json():
+                self.balance = float(btc_rsp.json()['final_balance'])
+                #from satoshi to btc
+                self.balance *= 0.00000001
 
 
 class ZcashAccount(Account):
 
     def fill_balance(self):
-        url = 'https://api.zcha.in/v2/mainnet/accounts/%s' %self.addr
-        zec_rsp = requests.get(url)
-        if zec_rsp.json():
-            self.balance = float(zec_rsp.json()['balance'])
+        if self.addr is not "":
+            url = 'https://api.zcha.in/v2/mainnet/accounts/%s' %self.addr
+            zec_rsp = requests.get(url)
+            if zec_rsp.json():
+                self.balance = float(zec_rsp.json()['balance'])
 
 
 class MoneroAccount(Account):
@@ -70,9 +71,10 @@ class MoneroAccount(Account):
 class EthereumAccount(Account):
 
     def fill_balance(self):
-        url = 'https://api.etherscan.io/api?' \
-              'module=account&action=balance&address=%s' %self.addr
-        eth_rsp = requests.get(url)
-        if eth_rsp.json():
-            self.balance = float(eth_rsp.json()['result'])
-            self.balance *= 0.000000000000000001
+        if self.addr is not "":
+            url = 'https://api.etherscan.io/api?' \
+                  'module=account&action=balance&address=%s' %self.addr
+            eth_rsp = requests.get(url)
+            if eth_rsp.json():
+                self.balance = float(eth_rsp.json()['result'])
+                self.balance *= 0.000000000000000001
