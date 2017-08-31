@@ -12,7 +12,9 @@ cryptos.json:
 ```
 [
 	{"currency": "bitcoin", "addr": "15ZrQBTkmxn7nnKUof2FmCmM1nDiosGENQ", "name": "donations"},
-	{"currency": "monero", "balance": 5.0, "name": "example"}
+	{"currency": "zcash", "addr": "t1bgE4C2WrdAt5L5Yj3fusJzKMBzJoeh1v7", "name": "donations"},
+	{"currency": "ethereum", "addr": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae", "name": "eth example"},
+	{"currency": "monero", "balance": 5.0, "name": "xmr example"}
 ]
 ```
 
@@ -29,6 +31,11 @@ TOTAL HOLDINGS: 648.20 usd
 * Zcash
 * Monero
 * Ethereum
+
+## Donations:
+
+* BTC: 15ZrQBTkmxn7nnKUof2FmCmM1nDiosGENQ
+* ZEC: t1bgE4C2WrdAt5L5Yj3fusJzKMBzJoeh1v7
 
 ## ToDo:
 
