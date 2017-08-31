@@ -23,6 +23,13 @@ Retrieving data...
 TOTAL HOLDINGS: 648.20 usd
 ```
 
+## Supported currencies:
+
+* Bitcoin
+* Zcash
+* Monero
+* Ethereum
+
 ## ToDo:
 
-The program only support BTC, ZEC and XMR for now. If you want, you can add new classes to "account.py" in order to support more currencies and send me a pull request :)
+If you want, you can add new classes to "account.py" in order to support more currencies and send me a pull request :)
