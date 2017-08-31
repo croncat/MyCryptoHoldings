@@ -1,4 +1,5 @@
 [
 	{"currency": "bitcoin", "addr": "15ZrQBTkmxn7nnKUof2FmCmM1nDiosGENQ", "name": "donations"},
-	{"currency": "monero", "balance": 5.0, "name": "example"}
+	{"currency": "ethereum", "addr": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae", "name": "eth example"},
+	{"currency": "monero", "balance": 5.0, "name": "xmr example"}
 ]

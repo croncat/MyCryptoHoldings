@@ -1,4 +1,5 @@
 import requests
+import locale
 
 class Account:
     #static use only
@@ -24,6 +25,7 @@ class Account:
         if type == "bitcoin": return BitcoinAccount(crypto)
         if type == "zcash": return ZcashAccount(crypto)
         if type == "monero": return MoneroAccount(crypto)
+        if type == "ethereum": return EthereumAccount(crypto)
         assert 0, "Bad account creation: " + type
     factory = staticmethod(factory)
 
@@ -65,3 +67,12 @@ class MoneroAccount(Account):
         return
 
 
+class EthereumAccount(Account):
+
+    def fill_balance(self):
+        url = 'https://api.etherscan.io/api?' \
+              'module=account&action=balance&address=%s' %self.addr
+        eth_rsp = requests.get(url)
+        if eth_rsp.json():
+            self.balance = float(eth_rsp.json()['result'])
+            self.balance *= 0.000000000000000001
