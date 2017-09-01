@@ -34,7 +34,7 @@ TOTAL HOLDINGS: 648.20 usd
 
 ## Complete list of supported currencies (most of them without 'addr' support):
 
-[Link](suported_currencies.md)
+[Link](supported_currencies.md)
 
 ## Donations:
 
