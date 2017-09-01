@@ -22,10 +22,9 @@ class Account:
     def factory(crypto):
         type = crypto['currency']
         if type == "bitcoin": return BitcoinAccount(crypto)
-        if type == "zcash": return ZcashAccount(crypto)
-        if type == "monero": return MoneroAccount(crypto)
-        if type == "ethereum": return EthereumAccount(crypto)
-        assert 0, "Bad account creation: " + type
+        elif type == "zcash": return ZcashAccount(crypto)
+        elif type == "ethereum": return EthereumAccount(crypto)
+        else: return OtherAccount(crypto)
     factory = staticmethod(factory)
 
     def fill_balance(self):
@@ -62,12 +61,6 @@ class ZcashAccount(Account):
                 self.balance = float(zec_rsp.json()['balance'])
 
 
-class MoneroAccount(Account):
-
-    def fill_balance(self):
-        return
-
-
 class EthereumAccount(Account):
 
     def fill_balance(self):
@@ -78,3 +71,9 @@ class EthereumAccount(Account):
             if eth_rsp.json():
                 self.balance = float(eth_rsp.json()['result'])
                 self.balance *= 0.000000000000000001
+
+
+class OtherAccount(Account):
+
+    def fill_balance(self):
+        return

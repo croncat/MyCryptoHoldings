@@ -3,7 +3,7 @@ import json
 from account import Account
 from account import BitcoinAccount
 from account import ZcashAccount
-from account import MoneroAccount
+from account import OtherAccount
 
 def my_crypto_holdings():
     with open('cryptos.json') as json_data:

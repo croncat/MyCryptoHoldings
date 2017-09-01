@@ -1,10 +1,10 @@
 # MyCryptoHoldings
 
-[This is a POC]
+A simple system to get your cryptocurrencies holdings in usd.
 
 ## Usage:
 
-Add to "cryptos.json" your crypto accounts. You only need to put the public addresses. In case of monero and zcash z addresses, right now you can put directly the balance (I don't develop any method to obtain protected balances [for now])
+Add to "cryptos.json" your crypto accounts. You only need to put the public addresses or balances.
 
 ## Example:
 
@@ -15,6 +15,7 @@ cryptos.json:
 	{"currency": "zcash", "addr": "t1bgE4C2WrdAt5L5Yj3fusJzKMBzJoeh1v7", "name": "donations"},
 	{"currency": "ethereum", "addr": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae", "name": "eth example"},
 	{"currency": "monero", "balance": 5.0, "name": "xmr example"}
+	{"currency": "bitcoin-cash", "balance": 5.0, "name": "bcc example"}
 ]
 ```
 
@@ -25,12 +26,15 @@ Retrieving data...
 TOTAL HOLDINGS: 648.20 usd
 ```
 
-## Supported currencies:
+## Full supported currencies (retrieving balance from public addresses):
 
-* Bitcoin
-* Zcash
-* Monero
-* Ethereum
+* bitcoin
+* zcash
+* ethereum
+
+## Complete list of supported currencies (most of them without 'addr' support):
+
+[Link](suported_currencies.md)
 
 ## Donations:
 
