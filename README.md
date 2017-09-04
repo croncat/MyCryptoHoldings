@@ -1,6 +1,6 @@
 # MyCryptoHoldings
 
-A simple system to get your cryptocurrencies holdings in usd.
+A simple system to get stimated value of your holdings in usd.
 
 ## Usage:
 
