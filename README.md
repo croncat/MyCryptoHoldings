@@ -10,23 +10,30 @@ Add to "cryptos.json" your crypto accounts. You only need to put the public addr
 
 ```
 #python mch.py
-Retrieving data...
-TOTAL HOLDINGS: 227127228.93 usd
-ethereum: 227126684.18 usd
-monero: 544.75 usd
-bitcoin: 0.00 usd
-zcash: 0.00 usd
+┌Summary─────────┬───────────────┐
+│ CURRENCY       │ USD           │
+├────────────────┼───────────────┤
+│ bitcoin-cash   │ 2673.7        │
+│ ethereum       │ 226215717.609 │
+│ monero         │ 586.81        │
+│ bitcoin        │ 4322.06       │
+│ zcash          │ 0.0           │
+│ TOTAL HOLDINGS │ 226223300.179 │
+└────────────────┴───────────────┘
 ```
 
 ```
 #python mch.py -i /home/user/holdings.json
 Retrieving data...
-TOTAL HOLDINGS: 9445.22 usd
-bitcoin-cash: 100.84 usd
-monero: 8000.34 usd
-bitcoin: 345.22 usd
-zcash: 998.82 usd
-```
+┌Summary─────────┬─────────┐
+│ CURRENCY       │ USD     │
+├────────────────┼─────────┤
+│ bitcoin-cash   │ 100.84  │
+│ monero         │ 8000.34 │
+│ bitcoin        │ 345.226 │
+│ zcash          │ 998.82  │
+│ TOTAL HOLDINGS │ 9445.22 │
+└────────────────┴─────────┘
 
 cryptos.json:
 ```

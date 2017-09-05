@@ -1,6 +1,8 @@
 import argparse
 import json
 
+from terminaltables import SingleTable
+
 from account import Account
 from account import BitcoinAccount
 from account import ZcashAccount
@@ -26,9 +28,16 @@ def total_holdings(accounts):
 
 def print_accounts_info(accounts):
     total, crypto_totals = total_holdings(accounts)
-    print('TOTAL HOLDINGS: %.2f usd' % total)
+    table_data = [ ["CURRENCY", "USD"] ]    
+
     for key, value in crypto_totals.items():
-        print('%s: %.2f usd' % (key, value))
+        #print('%s: %.2f usd' % (key, value))
+        table_data.append([key, value])
+
+    table_data.append(["TOTAL HOLDINGS", total])
+
+    table = SingleTable(table_data, "Summary")
+    print(table.table)
 
 def my_crypto_holdings():
     args = parser.parse_args()
