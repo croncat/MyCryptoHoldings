@@ -10,6 +10,7 @@ Add to "cryptos.json" your crypto accounts. You only need to put the public addr
 
 ```
 $ git clone https://github.com/k0ch/MyCryptoHoldings
+$ cd MyCryptoHoldings/
 $ pip install -r requirements.txt
 $ python mch.py
 ```
