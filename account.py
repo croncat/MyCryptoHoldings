@@ -58,10 +58,12 @@ class BitcoinAccount(Account):
         if self.addr is not "":
             url = 'https://blockchain.info/rawaddr/%s' % self.addr
             btc_rsp = requests.get(url)
-            if btc_rsp.json():
+            try:
                 self.balance = float(btc_rsp.json()['final_balance'])
                 # from satoshi to btc
                 self.balance *= 0.00000001
+            except:
+                print 'BTC fill_balance error: addr=%s' % self.addr
 
 
 class ZcashAccount(Account):
@@ -70,8 +72,10 @@ class ZcashAccount(Account):
         if self.addr is not "":
             url = 'https://api.zcha.in/v2/mainnet/accounts/%s' % self.addr
             zec_rsp = requests.get(url)
-            if zec_rsp.json():
+            try:
                 self.balance = float(zec_rsp.json()['balance'])
+            except:
+                print 'ZEC fill_balance error: addr=%s' % self.addr
 
 
 class EthereumAccount(Account):
@@ -81,9 +85,11 @@ class EthereumAccount(Account):
             url = 'https://api.etherscan.io/api?' \
                   'module=account&action=balance&address=%s' % self.addr
             eth_rsp = requests.get(url)
-            if eth_rsp.json():
+            try:
                 self.balance = float(eth_rsp.json()['result'])
                 self.balance *= 0.000000000000000001
+            except:
+                print 'ETH fill_balance error: addr=%s' % self.addr
 
 
 class AeonAccount(Account):
