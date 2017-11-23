@@ -1,6 +1,6 @@
 import requests
-
 from sys import stderr
+
 
 class Account:
     # static use only
@@ -115,7 +115,7 @@ class AeonAccount(Account):
                     self.balance *= 0.000000000001
             except requests.exceptions.ConnectionError as e:
                 msg = (
-                    "Getting {currency}'s balance have failed with this message:"
+                    "Getting {currency}'s balance have failed with message:"
                     "\n{message}\n").format(
                     currency=self.currency, message=e)
                 print(msg)

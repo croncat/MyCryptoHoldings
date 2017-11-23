@@ -2,10 +2,6 @@ import argparse
 import json
 
 from account import Account
-from account import BitcoinAccount
-from account import ZcashAccount
-from account import AeonAccount
-from account import OtherAccount
 
 parser = argparse.ArgumentParser(description='MyCryptoHoldings [MCH]')
 parser.add_argument('-i', '--input', type=str, default='./cryptos.json',
