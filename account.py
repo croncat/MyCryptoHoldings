@@ -1,5 +1,6 @@
 import requests
 
+from sys import stderr
 
 class Account:
     # static use only
@@ -63,7 +64,7 @@ class BitcoinAccount(Account):
                 # from satoshi to btc
                 self.balance *= 0.00000001
             except:
-                print 'BTC fill_balance error: addr=%s' % self.addr
+                stderr.write('BTC fill_balance error: addr=%s\n' % self.addr)
 
 
 class ZcashAccount(Account):
@@ -75,7 +76,7 @@ class ZcashAccount(Account):
             try:
                 self.balance = float(zec_rsp.json()['balance'])
             except:
-                print 'ZEC fill_balance error: addr=%s' % self.addr
+                stderr.write('ZEC fill_balance error: addr=%s\n' % self.addr)
 
 
 class EthereumAccount(Account):
@@ -89,7 +90,7 @@ class EthereumAccount(Account):
                 self.balance = float(eth_rsp.json()['result'])
                 self.balance *= 0.000000000000000001
             except:
-                print 'ETH fill_balance error: addr=%s' % self.addr
+                stderr.write('ETH fill_balance error: addr=%s\n' % self.addr)
 
 
 class AeonAccount(Account):
