@@ -50,6 +50,9 @@ class Account:
         if Account.cmc is None:
             url = 'https://api.coinmarketcap.com/v1/ticker/'
             Account.cmc = requests.get(url)
+        if not Account.cmc.ok:
+            stderr.write('Error getting USD values for %s\n' % self.name)
+            return
         for curr in Account.cmc.json():
             if curr['id'] == self.currency:
                 self.balance_usd = float(curr['price_usd']) * self.balance
