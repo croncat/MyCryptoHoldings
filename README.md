@@ -91,7 +91,9 @@ cryptos.json:
     {"currency": "ethereum", "addr": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae", "name": "eth example"},
     {"currency": "monero", "balance": 5.0, "name": "xmr example"},
     {"currency": "bitcoin-cash", "balance": 5.0, "name": "bcc example"},
-    {"currency": "bitcoin", "balance": 1.0, "name": "extra example"}
+    {"currency": "bitcoin", "balance": 1.0, "name": "extra example"},
+    {"currency": "aeon", "name": "donations", "wallet_addr": "http://127.0.0.1:1025"},
+    {"currency": "monero", "name": "donations", "wallet_addr": "http://127.0.0.1:1026"}
 ]
 ```
 
@@ -100,6 +102,8 @@ cryptos.json:
 * bitcoin
 * zcash
 * ethereum
+* monero (from local wallet)
+* aeon (from local wallet)
 
 ## Complete list of supported currencies (most of them without 'addr' support):
 
