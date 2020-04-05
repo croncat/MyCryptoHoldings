@@ -37,6 +37,8 @@ class Account:
             return AeonAccount(crypto)
         elif type == "monero":
             return MoneroAccount(crypto)
+        elif type == "litecoin":
+            return LitecoinAccount(crypto)
         else:
             return OtherAccount(crypto)
     factory = staticmethod(factory)
@@ -48,6 +50,9 @@ class Account:
         if Account.cmc is None:
             url = 'https://api.coinmarketcap.com/v1/ticker/'
             Account.cmc = requests.get(url)
+        if not Account.cmc.ok:
+            stderr.write('Error getting USD values for %s\n' % self.name)
+            return
         for curr in Account.cmc.json():
             if curr['id'] == self.currency:
                 self.balance_usd = float(curr['price_usd']) * self.balance
@@ -123,6 +128,32 @@ class AeonAccount(Account):
 
 class MoneroAccount(AeonAccount):
     pass
+
+
+class LitecoinAccount(BitcoinAccount):
+
+    def fill_balance(self):
+        if self.addr is not "":
+            url = "https://api.blockchair.com/litecoin/dashboards/address/%s" % self.addr
+            try:
+                chair_rsp = requests.get(url)
+                if chair_rsp.json():
+                    self.balance = float(chair_rsp.json().get(
+                        "data", 0
+                    ).get(
+                        self.addr, 0
+                    ).get(
+                        "address", 0
+                    ).get("balance", 0))
+                    self.balance *= 0.000000000001
+            except requests.exceptions.ConnectionError as e:
+                msg = (
+                    "Getting {currency}'s balance have failed with message:"
+                    "\n{message}\n").format(
+                    currency=self.currency, message=e)
+                print(msg)
+
+        return 0.0
 
 
 class OtherAccount(Account):
